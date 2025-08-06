@@ -12,7 +12,7 @@ export const ServiceCard = ({ service, onSelect }: ServiceCardProps) => {
   const isPremium = service.name.includes('Diamante') || service.name.includes('Oro');
   
   return (
-    <Card className="group relative overflow-hidden hover:shadow-[var(--shadow-primary)] transition-[var(--transition-smooth)] cursor-pointer bg-[var(--gradient-card)] border-border/50 hover:border-primary/50">
+    <Card className="group relative overflow-hidden hover:shadow-[var(--shadow-primary)] transition-[var(--transition-smooth)] cursor-pointer bg-[var(--gradient-card)] backdrop-blur-lg border-border/50 hover:border-primary/50">
       <div className="p-4 sm:p-6">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-[var(--transition-smooth)]">
@@ -55,7 +55,7 @@ export const ServiceCard = ({ service, onSelect }: ServiceCardProps) => {
         
         <Button 
           onClick={() => onSelect(service)}
-          className="w-full bg-[var(--gradient-primary)] hover:shadow-[var(--shadow-primary)] border-0 transition-[var(--transition-smooth)] text-sm sm:text-base py-2 sm:py-3"
+          className="w-full bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[var(--shadow-primary)] border-0 transition-[var(--transition-smooth)] text-sm sm:text-base py-2 sm:py-3"
         >
           Ver detalles y solicitar
         </Button>

@@ -101,7 +101,11 @@ export const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) =>
               <Button
                 onClick={handleWhatsAppContact}
                 disabled={!isFormValid}
-                className="w-full bg-[var(--gradient-primary)] hover:shadow-[var(--shadow-primary)] transition-[var(--transition-smooth)] text-sm sm:text-lg py-4 sm:py-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                className={`w-full transition-[var(--transition-smooth)] text-sm sm:text-lg py-4 sm:py-6 ${
+                  isFormValid 
+                    ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[var(--shadow-primary)]' 
+                    : 'bg-muted text-muted-foreground cursor-not-allowed'
+                }`}
               >
                 <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 ¡Lo quiero! - Contactar por WhatsApp

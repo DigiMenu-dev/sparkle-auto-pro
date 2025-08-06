@@ -40,8 +40,8 @@ const Index = () => {
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="bg-[var(--gradient-glass)] backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-12 shadow-[var(--shadow-card)] border border-border/50">
           <div className="text-center mb-8 sm:mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 bg-[var(--gradient-primary)] bg-clip-text text-transparent leading-tight">
-              AutoLavado Premium
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white drop-shadow-lg leading-tight">
+              Autolavado El Crucero
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">
               El mejor cuidado para tu vehículo
