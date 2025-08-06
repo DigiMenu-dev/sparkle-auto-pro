@@ -34,34 +34,40 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center">
+    <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
       <ImageSlider />
       
-      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
-        <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-[var(--shadow-card)]">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-[var(--gradient-primary)] bg-clip-text text-transparent">
-            AutoLavado Premium
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12">
-            El mejor cuidado para tu vehículo
-          </p>
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="bg-[var(--gradient-glass)] backdrop-blur-xl rounded-3xl p-6 sm:p-8 md:p-12 shadow-[var(--shadow-card)] border border-border/50">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 bg-[var(--gradient-primary)] bg-clip-text text-transparent leading-tight">
+              AutoLavado Premium
+            </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground">
+              El mejor cuidado para tu vehículo
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {vehicleTypes.map((type) => {
               const IconComponent = type.icon;
               return (
-                <Button
+                <button
                   key={type.id}
                   onClick={() => navigate(`/servicios/${type.id}`)}
-                  variant="outline"
-                  className="h-32 flex flex-col items-center justify-center gap-3 bg-white/70 backdrop-blur-sm border-2 border-primary/20 hover:border-primary hover:bg-[var(--gradient-primary)] hover:text-white group transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-primary)]"
+                  className="group relative h-28 sm:h-32 md:h-36 flex flex-col items-center justify-center gap-2 sm:gap-3 bg-[var(--gradient-card)] backdrop-blur-sm border border-border/50 rounded-xl hover:border-primary/50 hover:bg-[var(--gradient-primary)] transition-[var(--transition-smooth)] hover:shadow-[var(--shadow-primary)] hover:scale-105 transform"
                 >
-                  <IconComponent className="h-8 w-8 group-hover:scale-110 transition-transform" />
-                  <div className="text-center">
-                    <div className="font-semibold text-base">{type.name}</div>
-                    <div className="text-sm opacity-80">{type.description}</div>
+                  <IconComponent className="h-6 w-6 sm:h-8 sm:w-8 text-primary group-hover:text-white group-hover:scale-110 transition-all duration-300" />
+                  <div className="text-center px-2">
+                    <div className="font-semibold text-sm sm:text-base text-foreground group-hover:text-white transition-colors">
+                      {type.name}
+                    </div>
+                    <div className="text-xs sm:text-sm text-muted-foreground group-hover:text-white/90 transition-colors">
+                      {type.description}
+                    </div>
                   </div>
-                </Button>
+                  <div className="absolute inset-0 rounded-xl bg-[var(--gradient-primary)] opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                </button>
               );
             })}
           </div>

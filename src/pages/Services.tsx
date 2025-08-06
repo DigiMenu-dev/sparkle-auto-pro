@@ -42,38 +42,41 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex items-center gap-4 mb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="flex items-center gap-4 mb-6 sm:mb-8">
           <Button
             variant="outline"
             onClick={() => navigate('/')}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 bg-[var(--gradient-card)] border-border/50 hover:border-primary/50 text-sm sm:text-base"
           >
             <ArrowLeft className="h-4 w-4" />
-            Volver al inicio
+            <span className="hidden sm:inline">Volver al inicio</span>
+            <span className="sm:hidden">Volver</span>
           </Button>
         </div>
 
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <IconComponent className="h-12 w-12 text-primary" />
-            <h1 className="text-4xl md:text-5xl font-bold bg-[var(--gradient-primary)] bg-clip-text text-transparent">
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4">
+            <IconComponent className="h-8 w-8 sm:h-12 sm:w-12 text-primary" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-[var(--gradient-primary)] bg-clip-text text-transparent">
               {currentVehicle.name}
             </h1>
           </div>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-lg sm:text-xl text-muted-foreground px-4">
             Selecciona el servicio perfecto para tu {currentVehicle.name.toLowerCase()}
           </p>
         </div>
 
         {services.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-lg text-muted-foreground">
-              No hay servicios disponibles para este tipo de vehículo.
-            </p>
+            <div className="bg-[var(--gradient-card)] rounded-2xl p-8 border border-border/50 max-w-md mx-auto">
+              <p className="text-lg text-muted-foreground">
+                No hay servicios disponibles para este tipo de vehículo.
+              </p>
+            </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {services.map((service) => (
               <ServiceCard
                 key={service.id}

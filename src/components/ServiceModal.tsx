@@ -46,47 +46,47 @@ export const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto bg-[var(--gradient-card)] border-border/50">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold bg-[var(--gradient-primary)] bg-clip-text text-transparent">
+          <DialogTitle className="text-xl sm:text-2xl font-bold bg-[var(--gradient-primary)] bg-clip-text text-transparent">
             {service.name}
           </DialogTitle>
         </DialogHeader>
         
-        <div className="space-y-6">
-          <div className="bg-muted/50 rounded-lg p-4">
-            <p className="text-lg font-semibold text-primary mb-2">{service.price}</p>
-            <p className="text-muted-foreground">{service.description}</p>
+        <div className="space-y-4 sm:space-y-6">
+          <div className="bg-muted/50 rounded-lg p-3 sm:p-4 border border-border/30">
+            <p className="text-lg sm:text-xl font-semibold text-primary mb-2">{service.price}</p>
+            <p className="text-muted-foreground text-sm sm:text-base">{service.description}</p>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-3 text-foreground">Servicios incluidos:</h4>
+            <h4 className="font-semibold mb-3 text-foreground text-sm sm:text-base">Servicios incluidos:</h4>
             <div className="grid gap-2">
               {service.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">{feature}</span>
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm text-muted-foreground">{feature}</span>
                 </div>
               ))}
             </div>
           </div>
           
-          <div className="border-t pt-6">
-            <h4 className="font-semibold mb-4 text-foreground">Solicita tu cita ahora</h4>
+          <div className="border-t border-border/30 pt-4 sm:pt-6">
+            <h4 className="font-semibold mb-4 text-foreground text-sm sm:text-base">Solicita tu cita ahora</h4>
             <div className="space-y-4">
               <div>
-                <Label htmlFor="name" className="text-foreground">Tu nombre</Label>
+                <Label htmlFor="name" className="text-foreground text-sm">Tu nombre</Label>
                 <Input
                   id="name"
                   placeholder="Ingresa tu nombre completo"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="mt-1"
+                  className="mt-1 bg-input border-border/50 focus:border-primary text-sm sm:text-base"
                 />
               </div>
               
               <div>
-                <Label htmlFor="vehicle" className="text-foreground">
+                <Label htmlFor="vehicle" className="text-foreground text-sm">
                   Detalles de tu vehículo
                 </Label>
                 <Input
@@ -94,16 +94,16 @@ export const ServiceModal = ({ service, isOpen, onClose }: ServiceModalProps) =>
                   placeholder="Ej: Honda Civic 2020 Sedán, color blanco"
                   value={vehicle}
                   onChange={(e) => setVehicle(e.target.value)}
-                  className="mt-1"
+                  className="mt-1 bg-input border-border/50 focus:border-primary text-sm sm:text-base"
                 />
               </div>
               
               <Button
                 onClick={handleWhatsAppContact}
                 disabled={!isFormValid}
-                className="w-full bg-[var(--gradient-primary)] hover:shadow-[var(--shadow-primary)] transition-[var(--transition-smooth)] text-lg py-6"
+                className="w-full bg-[var(--gradient-primary)] hover:shadow-[var(--shadow-primary)] transition-[var(--transition-smooth)] text-sm sm:text-lg py-4 sm:py-6 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <MessageCircle className="mr-2 h-5 w-5" />
+                <MessageCircle className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                 ¡Lo quiero! - Contactar por WhatsApp
               </Button>
               
